@@ -98,11 +98,11 @@ public class UserProfileController {
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Set<Post>> getUserProfileLikedPosts(@PathVariable long profileId){
         return new ResponseEntity<Set<Post>>(service.getUserProfileLikedPosts(profileId), HttpStatus.OK);
-    }
-    
+    } 
+     
    
     
-    //PATCH
+    //PATCH 
     @PatchMapping("/update/{id}")
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Boolean> updatePartially(@PathVariable(name = "id") long id,
@@ -118,8 +118,8 @@ public class UserProfileController {
     
     @DeleteMapping ("/delete/{idProfile}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<User> deleteUserProfile(@PathVariable long id){
-        return new ResponseEntity<User>(service.removeUserProfile(id), HttpStatus.OK);}
+    public ResponseEntity<User> deleteUserProfile(@PathVariable long idProfile){
+        return new ResponseEntity<User>(service.removeUserProfile(idProfile), HttpStatus.OK);}
     
     @DeleteMapping ("/remove/like/{idProfile}/{idPost}")
     @PreAuthorize("hasRole('USER')")
